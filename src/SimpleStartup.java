@@ -1,4 +1,4 @@
-class SimpleStartUp {
+public class SimpleStartup {
     private int[] locationCells;
     public int numOfHits = 0;
 
@@ -27,23 +27,4 @@ class SimpleStartUp {
         return result;
     }
 
-}
-
-public class SimpleStartupTestDrive {
-    public static void main(String[] args) {
-        SimpleStartUp dot = new SimpleStartUp();
-        String testResult = "failed";
-
-        int guess = 3;
-        int[] locations = {1, 2, 3};
-        dot.setLocationCells(locations);
-
-        String result = dot.checkYourself(guess);
-
-        if (result.equals("hit")) {
-            testResult = "passed";
-        }
-
-        System.out.printf("Test Result: %s", testResult);
-    }
 }

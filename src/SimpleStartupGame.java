@@ -6,7 +6,7 @@ public class SimpleStartupGame {
         boolean isAlive = true;
 
         GameHelper helper = new GameHelper();
-        SimpleStartUp theStartup = new SimpleStartUp();
+        SimpleStartup theStartup = new SimpleStartup();
 
         theStartup.setLocationCells(locationCells);
 
