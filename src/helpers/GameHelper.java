@@ -1,3 +1,5 @@
+package helpers;
+
 import java.util.Scanner;
 
 public class GameHelper {

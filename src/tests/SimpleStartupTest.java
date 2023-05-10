@@ -1,3 +1,7 @@
+package tests;
+
+import core.SimpleStartup;
+
 public class SimpleStartupTest {
     public static void main(String[] args) {
         SimpleStartup dot = new SimpleStartup();

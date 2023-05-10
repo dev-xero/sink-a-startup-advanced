@@ -1,3 +1,7 @@
+package core;
+
+import helpers.GameHelper;
+
 public class SimpleStartupGame {
     public static void main(String[] args) {
         int numOfGuesses = 0;

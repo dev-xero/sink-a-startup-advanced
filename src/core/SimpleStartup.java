@@ -1,3 +1,5 @@
+package core;
+
 public class SimpleStartup {
     private int[] locationCells;
     public int numOfHits = 0;
