@@ -4,14 +4,18 @@ import core.Startup;
 
 import java.util.ArrayList;
 
-public class SimpleStartupTest {
+public class StartupTest {
     public static void main(String[] args) {
-        Startup dot = new Startup();
+        Startup dot = new Startup("dot");
         String testResult = "failed";
+        ArrayList<String> locations = new ArrayList<>();
 
-        int guess = 3;
-        ArrayList<String> locations = new ArrayList<String>("1", "2", "3");
+        locations.add("A0");
+        locations.add("A1");
+        locations.add("A2");
+
         dot.setLocationCells(locations);
+        String guess = "A1";
 
         String result = dot.checkYourself(guess);
 
