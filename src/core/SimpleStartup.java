@@ -1,30 +1,26 @@
 package core;
 
-public class SimpleStartup {
-    private int[] locationCells;
-    public int numOfHits = 0;
+import java.util.ArrayList;
 
-    public void setLocationCells(int[] cellLocations) {
+public class SimpleStartup {
+    private ArrayList<String> locationCells;
+
+    public void setLocationCells(ArrayList<String> cellLocations) {
         locationCells = cellLocations;
     }
 
-    public String checkYourself(int guess) {
+    public String checkYourself(String userInput) {
         String result = "miss";
+        int index = locationCells.indexOf(userInput);
 
-        for (int cell : locationCells) {
-            if (guess == cell) {
+        if (index >= 0) {
+            locationCells.remove(index);
+            if (locationCells.isEmpty()) {
+                result = "kill";
+            } else {
                 result = "hit";
-                numOfHits++;
-                break;
             }
-
         }
-
-        if (numOfHits == locationCells.length) {
-            result = "kill";
-        }
-
-        System.out.println(result);
 
         return result;
     }
