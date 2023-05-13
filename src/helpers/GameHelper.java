@@ -45,7 +45,7 @@ public class GameHelper {
     private boolean startupFits(int[] startupCoords, int increment) {
         int finalLocation = startupCoords[startupCoords.length - 1];
         if (increment == HORIZONTAL_INCREMENT) {
-            return calculateRowFromIndex(startupCoords[0]) == calculateRowFromIndex(startupCoords[finalLocation]);
+            return calculateRowFromIndex(startupCoords[0]) == calculateRowFromIndex(finalLocation);
         } else {
             return finalLocation < GRID_SIZE;
         }
