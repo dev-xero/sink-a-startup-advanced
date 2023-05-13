@@ -1,14 +1,16 @@
 package tests;
 
-import core.SimpleStartup;
+import core.Startup;
+
+import java.util.ArrayList;
 
 public class SimpleStartupTest {
     public static void main(String[] args) {
-        SimpleStartup dot = new SimpleStartup();
+        Startup dot = new Startup();
         String testResult = "failed";
 
         int guess = 3;
-        int[] locations = {1, 2, 3};
+        ArrayList<String> locations = new ArrayList<String>("1", "2", "3");
         dot.setLocationCells(locations);
 
         String result = dot.checkYourself(guess);

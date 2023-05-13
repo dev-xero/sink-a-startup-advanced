@@ -2,8 +2,13 @@ package core;
 
 import java.util.ArrayList;
 
-public class SimpleStartup {
+public class Startup {
+    public String name;
     private ArrayList<String> locationCells;
+
+    public Startup(String name) {
+        this.name = name;
+    }
 
     public void setLocationCells(ArrayList<String> cellLocations) {
         locationCells = cellLocations;
