@@ -8,7 +8,6 @@ public class StartupGame {
     GameHelper helper = new GameHelper();
     ArrayList<Startup> startups = new ArrayList<>();
     int numOfGuesses = 0;
-    int numOfKills = 0;
 
     public void setupGame() {
         System.out.println("Sink-A-Startup");
@@ -19,24 +18,39 @@ public class StartupGame {
         System.out.println("\tThe game ends when you've sunk all three startups.");
         System.out.println("\tGood luck!");
 
-        startups.add(new Startup("hakki"));
-        startups.add(new Startup("table-salt AI"));
-        startups.add(new Startup("hard-drive central"));
+        Startup hakki = new Startup("hakki");
+        Startup tableSaltAI = new Startup("table-salt AI"); // Reigen Arataka might actually own this one lol
+        Startup hardDriveCentral = new Startup("hard-drive central");
+
+        hakki.setLocationCells(helper.placeStartup(3));
+        tableSaltAI.setLocationCells(helper.placeStartup(3));
+        hardDriveCentral.setLocationCells(helper.placeStartup(3));
+
+        startups.add(hakki);
+        startups.add(tableSaltAI);
+        startups.add(hardDriveCentral);
     }
 
-    public void startPlaying(String userGuess) {
+    public void startPlaying() {
+        setupGame();
+        while (!startups.isEmpty()) {
+            String userGuess = helper.getUserInput("Your guess");
+            checkUserGuess(userGuess);
+        }
+        finishGame();
+    }
+
+    public void checkUserGuess(String userGuess) {
         for (Startup startup : startups) {
             String result = startup.checkYourself(userGuess);
             numOfGuesses++;
             if (result.equals("hit")) {
                 System.out.println("Cell " + userGuess + " : hit!");
+                break;
             } else if (result.equals("kill")) {
-                numOfKills++;
+                startups.remove(startup);
                 System.out.println("Ouch, you sunk " + startup.name + " !");
-                if (numOfKills == 3) {
-                    finishGame();
-                    break;
-                }
+                break;
             }
         }
     }
